@@ -64,7 +64,7 @@ services:
     environment:
       # 时区上海
       TZ: Asia/Shanghai
-      SERVER_PORT: 8160
+      SERVER_PORT: 10001
       spring.config.additional-location: /home/campus/conf/application-prod.yml
     volumes:
       - /docker/server/conf:/home/campus/conf

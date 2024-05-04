@@ -9,7 +9,7 @@ RUN mkdir -p /home/campus/conf
 
 WORKDIR /home/campus
 
-ENV SERVER_PORT=8160
+ENV SERVER_PORT=10001
 
 EXPOSE ${SERVER_PORT}
 

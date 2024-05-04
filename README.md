@@ -28,7 +28,7 @@ i茅台app，每日自动预约茅台
 - [x] jdk8
 - [x] mysql【SQL 脚本：doc/sql/campus_imaotai-1.0.5.sql】
 - [x] redis
-- [x] nginx【nginx.conf 配置:doc/docker/nginx/conf/nginx.conf】
+- [x] nginx【nginx.conf 配置：doc/docker/nginx/conf/nginx.conf】
 - [x] npm（用于本地运行前端工程）
 ```bash
 # 检查npm版本

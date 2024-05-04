@@ -9,8 +9,6 @@
 
 <h2 align="center">Campus-imaotai</h2>
 
-  [笔记仓库](https://github.com/oddfar/notes)  |  [我的博客](https://oddfar.com)  
-
 ## 项目介绍
 
 i茅台app，每日自动预约茅台
@@ -25,18 +23,59 @@ i茅台app，每日自动预约茅台
 - [x] 自定义时间/随机时间预约或旅行
 - [x] 申购结果消息推送
 
-此项目使用 **Campus** 进行编写：<https://github.com/oddfar/campus>
+## 环境
 
-## 文档
+- [x] jdk8
+- [x] mysql【SQL 脚本：doc/sql/campus_imaotai-1.0.5.sql】
+- [x] redis
+- [x] nginx【nginx.conf 配置:doc/docker/nginx/conf/nginx.conf】
+- [x] npm（用于本地运行前端工程）
+```bash
+# 检查npm版本
+npm -v
+node -v
+```
 
-- 文档：https://oddfar.github.io/campus-doc/campus-imaotai
+## 本地启动
 
-- 视频：https://www.bilibili.com/video/BV1dj411H7oT
+```bash
+# 前端ui
+1、本地执行 vue_campus_admin/bin/package.bat（安装Web工程，生成node_modules文件）
+2、本地执行 vue_campus_admin/bin/run-web.bat（使用 Vue CLI 命令运行 Web 工程）
+
+# 后端项目
+1、调整配置文件
+    campus-modular\src\main\resources\application.yml
+    campus-modular\src\main\resources\application-dev.yml
+2、启动
+    启动类：campus-modular\src\main\java\com\oddfar\campus\CampusApplication.java
+```
+## 服务器启动
+
+```bash
+# 前端ui
+1、本地执行 vue_campus_admin/bin/build.bat（打包Web工程，生成dist文件）
+    如果报错：Error: error:0308010C:digital envelope routines::unsupported 的话，是由于 Node.js 版本高了（17+），需要告诉 Node.js 使用旧版的 OpenSSL 提供者，本地执行 vue_campus_admin/bin/build_0308010C.bat
+2、将本地 dist 放到服务器上
+3、配置 nginx 启动
+
+# 后端项目
+1、调整配置文件
+    campus-modular\src\main\resources\application.yml
+    campus-modular\src\main\resources\application-prod.yml
+2、打包
+    mvn clean install
+3、将部署包 campus-modular/target/campus-modular.jar 放到服务器上
+4、启动
+    nohup java -jar -Dspring.profiles.active=prod campus-modular.jar &
+```
+
+## 日志
+
+- [x] 日志路径：${logging.file.path:-./logs}
 
 
 ## 演示图
-
-
 
 | i茅台预约                                                    |                                                              |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |

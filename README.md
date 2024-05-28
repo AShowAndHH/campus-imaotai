@@ -74,6 +74,8 @@ node -v
 
 - [x] 日志路径：${logging.file.path:-./logs}
 
+## 登录信息
+admin admin123
 
 ## 演示图
 
